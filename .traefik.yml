@@ -1,0 +1,23 @@
+displayName: h3xsh Traefik Middleware
+type: middleware
+import: github.com/h3xsh/traefik-middleware
+summary: Adds a KSUID-based trace ID header to requests and optionally to responses
+basePkg: h3xsh_traefik_middleware
+testData:
+  trace: 
+    enabled: true
+    valuePrefix: ""
+    valueSuffix: ""
+    headerName: "X-Request-Trace-Id"
+    addToResponse: true
+  auth:
+    enabled: true
+    keyNameHeaderName: "X-Service-Key-name"
+    keyValueHeaderName: "X-Service-Key-value"
+    removeKeyNameOnSuccess: false
+    removeKeyValueOnSuccess: true
+    keys:
+      - name: "service-a"
+        value: "api-key-123"
+      - name: "service-b"
+        value: "api-key-456"
